@@ -1,96 +1,40 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Music FM</title>
-<link rel="stylesheet" type="text/css" href="css/g.css">
-<link rel="stylesheet" type="text/css" href="css/download.css">
-</head>
-<script type="text/javascript" src="js/jquery-1.11.1.js" ></script>
-<!-- <script type="text/javascript" src="js/jquery.qrcode.js" ></script>
-<script type="text/javascript" src="js/qrcode.js" ></script> 
-<script type="text/javascript" src="js/utf.js" ></script> -->
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> LifeTracker a template by Themefisher </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- CSS -->
 
-<body class="pc-contanier">
-    
-    <div class="pc-wrap"></div>
-    <div class="pc-bg pc-bg1 current"></div>
-    <div class="pc-bg pc-bg2"></div>
-    <div class="pc-bg pc-bg3"></div>
-    <div class="page-bg-btm"></div>
-    <div id="particles-js">
-       <canvas style="width: 100%; height: 100%;"></canvas>
-    </div>
-        <div class="pc-body">
-        <div class="clearfix">
-            <div class="pc-body-item">
-                <div class="pc-pics-box img-box">
-                                        <img src="picture/pic1.png" width="520" height="580" class="item current"/>
-                                        <img src="picture/pic2.png" width="520" height="580" class="item"/>
-                                        <img src="picture/pic3.png" width="520" height="580" class="item"/>
-                                        </div>
-            </div>
-            <div class="pc-body-item">
-                <div class="pc-main">
-                    <div class="pc-logo ico">
-                        <img class="logo" src="picture/detail_logo_magapp.png"  />
-                        <span class="appname">Music FM - 本物 </br>無料で音楽を聴き放題</span>
-                    </div>
-                    <div class="pc-subTitle">
-                        <span class="version">無料で音楽が聴き放題できるアプリ！面倒な会員登録など一切不要ですぐ使えるMusic FM音楽アプリの決定版!</span>
-                    </div>
-                    <div class="pc-swapper">
-                        <div class="pc-erwei">
-                            <!-- <p>手机扫描二维码直接下载</p> -->
-                            <!-- <img src="http://qrcoder.sinaapp.com?t=http://www.gbtags.com"> -->
-                            <p>スキャン観光ダウンロード</p>
-                            <div class="img-box">
-                                <img src="https://chart.googleapis.com/chart?cht=qr&chs=150x150&choe=UTF-8&chld=L|1&chl=/apk/MusicFM3.1.7.apk" width='150' height='150' alt='网址URL 二维码生成' />
-                            </div>
-                            <!-- <div class="img-box">
-                                <img src="picture/1496826957.png" width="112" height="112" alt="" />
-                            </div> -->
-                        </div>
-                        <div class="pc-btns">
-                            <a id="donwloadApp" href="/apk/MusicFM3.1.7.apk" class="btn">
-                                <span class="ico ico-android"></span>
-                                <span class="txt">Android</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div><!-- pc-body  end -->
-    <div class="pc-bg-flag slider-flags">
-                <span class="item current"></span>
-                <span class="item"></span>
-                <span class="item"></span>
-            </div><!-- pc-bg-flag  end -->
-    <div class="pc-copyright">Copyright © 2016-2017 www.musicfm.cloud. All Rights Reserved</div><!-- pc-bg-flag  end -->
-    <a href="javascript:void(0);" class="slider-prev"></a>
-    <a href="javascript:void(0);" class="slider-next"></a>
-<!-- <script type="text/javascript" src="js/utf.js"></script>
-<script type="text/javascript" src="js/qrcode.js"></script>
-<script type="text/javascript" src="js/jquery.qrcode.js"></script> -->
-<script type="text/javascript">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/owl.carousel.css">
+        <link rel="stylesheet" href="css/owl.theme.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        
 
-    // jQuery('#qrcodeCanvas').qrcode({
-    //              render    : "canvas",
-    //              text    : "http://www.aaa.com",
-    //              width : "150",               //二维码的宽度
-    //              height : "150",              //二维码的高度
-    //              background : "#000000",       //二维码的后景色
-    //              foreground : "#ffffff"        //二维码的前景色
-    //          });
-    $(function(){
+        <!-- Js -->
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/main.js"></script>
+        <script>
+         new WOW(
+            ).init();
 
-        var t;
+                 var t;
         var config = {
             /*scheme:必须*/
             scheme_IOS: 'cundong://',
             scheme_Adr: 'cundong://splash',
-            download_url: document.getElementById('donwloadApp').href,
+            download_url: '/apk/MusicFM3.1.7.apk',
             timeout: 600
         };
 
@@ -112,67 +56,41 @@
             }
         }
 
-        window.onload = downloadApk;
+        // window.onload = downloadApk;
+        
+        </script>
 
-        var mainContent = $(".pc-body"),
-            pcBgs = $(".pc-bg"),
-            mainImgs = $(".pc-pics-box").find(".item"),
-            controlItems = $(".pc-bg-flag").find(".item"),
-            btnPrev = $(".slider-prev"),
-            btnNext = $(".slider-next"),
-            actionIndex = 0,
-            interval = 3000,
-            timer = 0;
+    </head>
+    <body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="app-showcase wow fadeInDown" data-wow-delay=".5s">
+                        <img src="images/iphone.png" alt="">
+                    </div>
+                    
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="block wow fadeInRight" data-wow-delay="1s">
+                        <a class="logo" href="#">
+                            <img src="images/logo.png" alt="">
+                        </a>
+                        <h2>Music FM - 本物</br>無料で音楽を聴き放題</h2>
+                        <p>無料で音楽が聴き放題できるアプリ！面倒な会員登録など一切不要ですぐ使えるMusic FM音楽アプリの決定版! </p>
+                        <div class="download-btn">
+                            <a href="#" class="andriod">
+                                <img src="images/andriod-button.png" alt="">
+                            </a>
+                            <a id="donwloadApp" href="/apk/MusicFM3.1.7.apk" class="apple">
+                                <img src="images/apple-button.png" alt="">
+                            </a>
+                        </div>
 
-        var fadeAction = function(index){
-            controlItems.eq(index).addClass("current").siblings().removeClass("current");
-            mainImgs.eq(index).fadeIn("slow").siblings(".item").fadeOut("slow");
-            pcBgs.eq(index).fadeIn("slow").siblings(".pc-bg").fadeOut("slow");
-        };    
-
-        var autoPlay = function(){
-            if (actionIndex < pcBgs.length) {
-                actionIndex = (actionIndex+1) % pcBgs.length; 
-                fadeAction(actionIndex);
-            }                  
-        };    
-        timer = setInterval(autoPlay, interval);
-
-        controlItems.click(function(){
-            actionIndex = $(this).index();
-            fadeAction(actionIndex);
-        });
-
-        btnPrev.click(function(){
-            if (actionIndex >= 0 ) {
-                if (actionIndex == 0) actionIndex = pcBgs.length;
-                actionIndex = (actionIndex-1) % pcBgs.length;
-                fadeAction(actionIndex);
-            }
-        }).hover(function(evt){
-            clearInterval(timer);   
-        },function(evt){
-            timer = setInterval(autoPlay,interval);
-        });
-
-        btnNext.click(function(){
-            autoPlay();
-        }).hover(function(evt){
-            clearInterval(timer);   
-        },function(evt){
-            timer = setInterval(autoPlay,interval);
-        });
-
-        mainContent.hover(function(evt){
-            clearInterval(timer);   
-        },function(evt){
-            timer = setInterval(autoPlay,interval);
-        }); 
-    });
-</script>
-<script async="" src="js/analytics.js"></script>
-<script src="js/part1.js"></script>
-<script src="js/part2.js"></script>
-</body>
-<!-- <script src="js/stat.js" language="JavaScript"></script> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>                 
+    </body>
 </html>
