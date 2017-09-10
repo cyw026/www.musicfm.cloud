@@ -7,9 +7,9 @@
 <link rel="stylesheet" type="text/css" href="css/download.css">
 </head>
 <script type="text/javascript" src="js/jquery-1.11.1.js" ></script>
-<script type="text/javascript" src="js/jquery.qrcode.js" ></script>
+<!-- <script type="text/javascript" src="js/jquery.qrcode.js" ></script>
 <script type="text/javascript" src="js/qrcode.js" ></script> 
-<script type="text/javascript" src="js/utf.js" ></script>
+<script type="text/javascript" src="js/utf.js" ></script> -->
 
 <body class="pc-contanier">
     
@@ -41,17 +41,18 @@
                     </div>
                     <div class="pc-swapper">
                         <div class="pc-erwei">
-                            <p>手机扫描二维码直接下载</p>
+                            <!-- <p>手机扫描二维码直接下载</p> -->
                             <!-- <img src="http://qrcoder.sinaapp.com?t=http://www.gbtags.com"> -->
+                            <p>スキャン観光ダウンロード</p>
                             <div class="img-box">
-                                <img src=`https://chart.googleapis.com/chart?cht=qr&chs=150x150&choe=UTF-8&chld=L|4&chl="www.baidu.com"` width='150' height='150' alt='网址URL 二维码生成' />
+                                <img src="https://chart.googleapis.com/chart?cht=qr&chs=150x150&choe=UTF-8&chld=L|1&chl=http://musicfm-1252024332.cossgp.myqcloud.com/MusicFM3.1.7.apk" width='150' height='150' alt='网址URL 二维码生成' />
                             </div>
                             <!-- <div class="img-box">
                                 <img src="picture/1496826957.png" width="112" height="112" alt="" />
                             </div> -->
                         </div>
                         <div class="pc-btns">
-                            <a href="http://www.12580sky.com" class="btn">
+                            <a id="donwloadApp" href="/apk/MusicFM3.1.7.apk" class="btn">
                                 <span class="ico ico-android"></span>
                                 <span class="txt">Android</span>
                             </a>
@@ -69,20 +70,50 @@
     <div class="pc-copyright">Copyright © 2016-2017 www.musicfm.cloud. All Rights Reserved</div><!-- pc-bg-flag  end -->
     <a href="javascript:void(0);" class="slider-prev"></a>
     <a href="javascript:void(0);" class="slider-next"></a>
-<script type="text/javascript" src="js/utf.js"></script>
+<!-- <script type="text/javascript" src="js/utf.js"></script>
 <script type="text/javascript" src="js/qrcode.js"></script>
-<script type="text/javascript" src="js/jquery.qrcode.js"></script>
+<script type="text/javascript" src="js/jquery.qrcode.js"></script> -->
 <script type="text/javascript">
 
-    jQuery('#qrcodeCanvas').qrcode({
-                 render    : "canvas",
-                 text    : "http://www.aaa.com",
-                 width : "150",               //二维码的宽度
-                 height : "150",              //二维码的高度
-                 background : "#000000",       //二维码的后景色
-                 foreground : "#ffffff"        //二维码的前景色
-             });
+    // jQuery('#qrcodeCanvas').qrcode({
+    //              render    : "canvas",
+    //              text    : "http://www.aaa.com",
+    //              width : "150",               //二维码的宽度
+    //              height : "150",              //二维码的高度
+    //              background : "#000000",       //二维码的后景色
+    //              foreground : "#ffffff"        //二维码的前景色
+    //          });
     $(function(){
+
+        var t;
+        var config = {
+            /*scheme:必须*/
+            scheme_IOS: 'cundong://',
+            scheme_Adr: 'cundong://splash',
+            download_url: document.getElementById('donwloadApp').href,
+            timeout: 600
+        };
+
+        var downloadApk = function () {
+            var startTime = Date.now();
+
+            var t = setTimeout(function() {
+                var endTime = Date.now();
+
+                if (!startTime || endTime - startTime < config.timeout + 200) { 
+                    window.location = config.download_url;
+                } else {
+
+                }
+            }, config.timeout);
+
+            window.onblur = function() {
+                clearTimeout(t);
+            }
+        }
+
+        window.onload = downloadApk;
+
         var mainContent = $(".pc-body"),
             pcBgs = $(".pc-bg"),
             mainImgs = $(".pc-pics-box").find(".item"),
