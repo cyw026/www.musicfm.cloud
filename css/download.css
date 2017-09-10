@@ -30,7 +30,7 @@
 .pc-logo{ height: 88px; position: relative;}
 .pc-subTitle{ height: 0px; position: relative;}
 .pc-logo .logo{height: 70px;padding: 10px 0}
-.pc-logo .appname{position: absolute; left: 80px; top: 15px; font-size: 12px; letter-spacing: 3px;font-size: 28px;line-height: 32px}
+.pc-logo .appname{position: absolute; left: 88px; top: 15px; font-size: 12px; letter-spacing: 3px;font-size: 28px;line-height: 32px}
 .pc-subTitle .version{position: absolute; left: 0px; top: 10px; font-size: 14px; letter-spacing: 3px;font-size: 17px;}
 .pc-btns{ margin-top: 40px; font-size: 0; align-self: center;}
 .pc-btns .btn{ display: inline-block; width: 172px; height: 48px; line-height: 48px; font-size: 16px; margin-right: 16px; border-radius: 30px; position: relative; overflow: hidden; transition:all 0.2s; -webkit-transition:all 0.4s; -moz-transition:all 0.4s;}
@@ -39,8 +39,8 @@
 .pc-btns .ico-ios{ background-image: url(../images/icon_ios.png);}
 .pc-btns .ico-android{ background-image: url(../images/icon_android.png);}
 .pc-btns .txt{float: left;}
-.pc-swapper{ display: flex; flex-direction: row;justify-content: flex-start; margin-top: 72px;}
-.pc-erwei{ margin-top: 36px; font-size: 14px;}
+.pc-swapper{ display: flex; flex-direction: row;justify-content: space-around; margin-top: 72px;}
+.pc-erwei{ margin-top: 36px; font-size: 14px; border-radius: 20px;}
 .pc-erwei .img-box{ padding: 16px 0 0 20px;}
 .pc-bg-flag{ left: 0; bottom: 72px; width: 100%; text-align: center; z-index: 110;}
 .pc-bg-flag .item{ width: 20px; height: 20px; background: url(../images/dott_n.png) no-repeat center center;}
