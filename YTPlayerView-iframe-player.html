@@ -41,7 +41,32 @@
     var error = false;
 
     YT.ready(function() {
-        player = new YT.Player('player', %@);
+        player = new YT.Player('player', {
+                
+                height: '100%',
+                width: '100%',
+                
+                events: {
+                    onReady: function(event) { onReady(event.data) },
+                    onStateChange: function(event) { onStateChange(event.data) },
+                    onPlaybackQualityChange: function(event) { onPlaybackQualityChange(event.data) },
+                    onError: function(error) { onPlayerError(error.data) }
+                },
+
+                playerVars: {
+                    autoplay: 0,
+                    autohide: 1,
+                    controls: 0,
+                    enablejsapi: 1,
+                    fs: 0,
+                    origin: 'https://www.youtube.com',
+                    rel: 0,
+                    showinfo: 0,
+                    iv_load_policy: 3
+                },
+                videoId: 'QhDuG7qOVb8'
+                
+            });
         player.setSize(window.innerWidth, window.innerHeight);
         window.location.href = 'ytplayer://onYouTubeIframeAPIReady';
 
