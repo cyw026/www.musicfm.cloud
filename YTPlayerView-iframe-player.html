@@ -39,50 +39,32 @@
     <script>
     var player;
     var error = false;
+    //获取 参数 param
+    var getParam = {
+        href : function(){
+
+            var href  = decodeURI(window.location.href);
+            var params = href.split("?")[1];
+            var paramArr = params.split('&');
+            var res = {};
+            for(var i = 0;i<paramArr.length;i++){
+                var str = paramArr[i].split('=');
+                res[str[0]]=str[1];
+            }
+
+            return res;
+        },
+        params : function() {
+            var obj = getParam.href();
+            return JSON.parse(obj.params)
+        }
+    }
 
     YT.ready(function() {
 
-        var search = window.location.search.toString();
-        var querys = search.substr(1, search.length - 1).split('&');
-        var videoId = "";
-        var playlistId = "";
-        var autoplay = 0
-
-        querys.forEach(element => {
-            var keyValues = element.split('=');
-            if (keyValues[0].indexOf('videoId') !== -1) videoId = keyValues[1];
-            if (keyValues[0].indexOf('playlistId') !== -1) playlistId = keyValues[1];
-            if (keyValues[0].indexOf('autoplay') != -1) autoplay = keyValues[1];
-        });
-
-        player = new YT.Player('player', {
-                
-                height: '100%',
-                width: '100%',
-                
-                events: {
-                    onReady: function(event) { onReady(event.data) },
-                    onStateChange: function(event) { onStateChange(event.data) },
-                    onPlaybackQualityChange: function(event) { onPlaybackQualityChange(event.data) },
-                    onError: function(error) { onPlayerError(error.data) }
-                },
-
-                playerVars: {
-                    autoplay: autoplay,
-                    autohide: 1,
-                    controls: 1,
-                    enablejsapi: 1,
-                    playsinline: 1,
-                    fs: 0,
-                    origin: 'https://www.youtube.com',
-                    rel: 0,
-                    showinfo: 0,
-                    iv_load_policy: 3
-                },
-                videoId: videoId                
-            });
+        player = new YT.Player('player', getParam.params());
         player.setSize(window.innerWidth, window.innerHeight);
-        window.location.href = 'ytplayer://onYouTubeIframeAPIReady';
+        window.location.href = 'ytplayer://onYouTubeIframeAPIReady';        
 
         // this will transmit playTime frequently while playng
         function getCurrentTime() {
@@ -98,6 +80,8 @@
     });
 
     function onReady(event) {
+        event.target.playVideo();
+
         window.location.href = 'ytplayer://onReady?data=' + event.data;
     }
 
