@@ -41,6 +41,20 @@
     var error = false;
 
     YT.ready(function() {
+
+        var search = window.location.search.toString();
+        var querys = search.substr(1, search.length - 1).split('&');
+        var videoId = "";
+        var playlistId = "";
+        var autoplay = 0
+
+        querys.forEach(element => {
+            var keyValues = element.split('=');
+            if (keyValues[0].indexOf('videoId') !== -1) videoId = keyValues[1];
+            if (keyValues[0].indexOf('playlistId') !== -1) playlistId = keyValues[1];
+            if (keyValues[0].indexOf('autoplay') != -1) autoplay = keyValues[1];
+        });
+
         player = new YT.Player('player', {
                 
                 height: '100%',
@@ -54,7 +68,7 @@
                 },
 
                 playerVars: {
-                    autoplay: 0,
+                    autoplay: autoplay,
                     autohide: 1,
                     controls: 1,
                     enablejsapi: 1,
@@ -65,7 +79,9 @@
                     showinfo: 0,
                     iv_load_policy: 3
                 },
-                videoId: 'QhDuG7qOVb8'
+                videoId: videoId,
+                listType: 'playlist',
+                list: 'playlistId'
                 
             });
         player.setSize(window.innerWidth, window.innerHeight);
