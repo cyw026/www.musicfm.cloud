@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<body style="margin:0;padding:0;border:0;background-color:black">
+    <div id="player" style="margin:0;padding:0;border:0;"></div>
+
+    <script>
+        // tag
+        var tag = document.createElement('script');
+        // iframe api
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        // player
+        //var currentVideoId = 'SX_ViT4Ra7k';
+        var currentVideoId = '-tKVN2mAKRI';
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: document.body.clientWidth * 9 / 16,
+                width: document.body.clientWidth,
+                videoId: currentVideoId,
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange,
+                    'onError': onPlayerError
+                },
+                playerVars: {
+                    //autoplay: 1,
+                    cc_load_policy: 0,
+                    controls: 0,
+                    disablekb: 1,
+                    iv_load_policy: 3,
+                    modestbranding: 1
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            player.playVideo();
+            android.OnPlayerReady();
+        }
+
+        function onPlayerStateChange(event) {
+            console.log(event.data);
+            if (event.data == 5) {
+                player.playVideo();
+            }
+            android.OnPlayerStateChange(event.data);
+        }
+
+        function onPlayerError(event) {
+            android.OnPlayerError(event.data);
+        }
+
+        function stopVideo() {
+            if (player != null) {
+                player.stopVideo();
+            }
+        }
+
+        function pauseVideo() {
+            if (player != null) {
+                player.pauseVideo();
+            }
+        }
+
+        function playVideo() {
+            if (player != null) {
+                player.playVideo();
+            }
+        }
+
+        function cueVideo(videoId) {
+            currentVideoId = videoId;
+            if (player != null) {
+                player.cueVideoById(videoId);
+                player.playVideo();
+            }
+        }
+
+        function playVideo() {
+            if (player != null) {
+                player.playVideo();
+            }
+        }
+
+        function playerSetSize(width, height) {
+            if (player != null) {
+                player.setSize(witdh, height);
+            }
+        }
+
+        function seekTo(seconds, allowSeekAhead) {
+            if (player != null) {
+                player.seekTo(seconds, allowSeekAhead);
+            }
+        }
+
+        function getCurrentTime() {
+            if (player != null) {
+                android.OnGetCurrentTime(player.getCurrentTime());
+            }
+            else {
+                android.OnGetCurrentTime(0);
+            }
+        }
+
+        function getDuration() {
+            if (player != null) {
+                android.OnGetDuration(player.getDuration());
+            }
+            else {
+                android.OnGetDuration(0);
+            }
+        }
+    </script>
+</body>
+</html>
